@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.melkor.training.MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplicacion de Entrenamiento"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:text="La siguiente aplicacion tiene como objetivo repasar conceptos basicos de desarrollo mobile.
+\nCompletar cada una de las secciones con la funcionalidad indicada en la alerta que se despliega al oprimir el boton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/grayBackGround"
+        android:lines="5"
+        android:textStyle="italic"/>
+
+    <Button
+        android:id="@+id/btn_toma_datos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toma de datos"/>
+    <Button
+        android:id="@+id/btn_consume_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consumir servicio"/>
+    <Button
+        android:id="@+id/btn_DB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Integracion Base de Datos"/>
+    <Button
+        android:id="@+id/btn_fragments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fragments"/>
+
+</LinearLayout>

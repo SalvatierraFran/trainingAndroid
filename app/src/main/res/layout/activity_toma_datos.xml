@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.melkor.training.TomaDatos"
+    android:background="@color/Gris">
+
+    <TextView
+        android:id="@+id/TomaDatos_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/Rojo"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+
+    <EditText
+        android:id="@+id/TomaDatos_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escribir"
+        android:layout_gravity="center"
+        android:background="@color/Primario"
+        android:textColor="@color/Blanco"
+        android:id="@+id/TomaDatos_btn"/>
+
+    <Button
+        android:id="@+id/TomaDatos_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Borrar"
+        android:background="@color/Rojo"
+        android:textColor="@color/Blanco"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>
