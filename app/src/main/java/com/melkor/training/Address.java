@@ -1,5 +1,6 @@
 package com.melkor.training;
 
+import android.provider.Telephony;
 import android.telephony.SubscriptionInfo;
 
 /**
@@ -12,6 +13,8 @@ public class Address {
     private String city;
     private String zipcode;
     private Geo geo;
+
+    public Address(){}
 
     public Address(String Street, String Suite, String City, String Zipcode, Geo Geo)
     {

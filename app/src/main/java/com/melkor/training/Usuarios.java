@@ -15,6 +15,8 @@ public class Usuarios {
     private String website;
     private Company company;
 
+    public Usuarios(){}
+
     public Usuarios(Integer Id, String Name, String Username, String Email, Address Address, String Phone, String Website, Company Company)
     {
         this.id = Id;

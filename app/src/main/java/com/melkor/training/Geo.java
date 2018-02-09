@@ -9,6 +9,8 @@ public class Geo {
     private String lat;
     private String lng;
 
+    public Geo(){}
+
     public Geo(String Lat, String Lng)
     {
         this.lat = Lat;
