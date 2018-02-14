@@ -2,12 +2,14 @@ package com.melkor.training;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.Switch;
 
 import android.util.Log;
 
 import com.melkor.training.Utils.AsynkConnector;
 import com.melkor.training.Utils.Callback;
+import com.melkor.training.Utils.DataHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,6 +26,10 @@ public class Servicio extends AppCompatActivity {
         setContentView(R.layout.activity_servicio);
 
         getData();
+
+        ListView listview = (ListView)this.findViewById(R.id.servicio_lv);
+        UsuariosAdapter itemAdapter = new UsuariosAdapter(this, R.layout.row_layout, DataHandler.datos);
+        listview.setAdapter(itemAdapter);
 
     }
 
