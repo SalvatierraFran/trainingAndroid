@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".TomaDatos" />
         <activity android:name=".Servicio" />
-        <activity android:name=".MasDatosActivity"></activity>
+        <activity android:name=".MasDatosActivity" />
+        <activity android:name=".BotonDBActivity"></activity>
     </application>
 
 </manifest>

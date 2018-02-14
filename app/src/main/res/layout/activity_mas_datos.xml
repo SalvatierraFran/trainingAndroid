@@ -240,7 +240,6 @@
             android:id="@+id/masdatos_bs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bs"
             android:textSize="20dp"/>
 
     </LinearLayout>

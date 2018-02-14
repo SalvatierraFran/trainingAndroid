@@ -69,8 +69,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goToDB() {
-        ShowAlert("Almacenar en una DB local la fecha y hora de cuando se oprime un boton" +
-                "y mostrar en la parte inferior de la pantalla que indique la cantidad de registros existentes en la DB");
+        /*ShowAlert("Almacenar en una DB local la fecha y hora de cuando se oprime un boton" +
+                "y mostrar en la parte inferior de la pantalla que indique la cantidad de registros existentes en la DB");*/
+
+        Intent myIntent = new Intent(MainActivity.this, BotonDBActivity.class);
+        MainActivity.this.startActivity(myIntent);
     }
 
     private void goToConsumeService() {
