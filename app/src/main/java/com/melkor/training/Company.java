@@ -10,6 +10,8 @@ public class Company {
     private String catchPhrase;
     private String bs;
 
+    public Company(){}
+
     public Company(String Name, String CatchPhrase, String Bs)
     {
         this.name = Name;

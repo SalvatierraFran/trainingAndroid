@@ -1,9 +1,11 @@
 package com.melkor.training;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Switch;
 
 import android.util.Log;
 
@@ -20,6 +22,9 @@ import java.util.ArrayList;
 
 public class Servicio extends AppCompatActivity {
 
+    private List<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +32,21 @@ public class Servicio extends AppCompatActivity {
 
         getData();
 
-        ListView listview = (ListView)this.findViewById(R.id.servicio_lv);
-        UsuariosAdapter itemAdapter = new UsuariosAdapter(this, R.layout.row_layout, DataHandler.datos);
+        System.out.println(getListaUsuarios());
+
+        final ListView listview = (ListView)this.findViewById(R.id.servicio_lv);
+        UsuariosAdapter itemAdapter = new UsuariosAdapter(this, R.layout.row_layout, getListaUsuarios());
         listview.setAdapter(itemAdapter);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                Intent myIntentDatos = new Intent(Servicio.this, MasDatosActivity.class);
+                myIntentDatos.putExtra("Datos",i);
+                startActivity(myIntentDatos);
+            }
+        });
 
     }
 
@@ -85,6 +102,7 @@ public class Servicio extends AppCompatActivity {
                 Usuarios user = new Usuarios();
                 Address addr = new Address();
                 Geo geo = new Geo();
+                Company Comp = new Company();
 
                 user.setId(obj.optInt("id"));
                 user.setName(obj.optString("name"));
@@ -101,8 +119,20 @@ public class Servicio extends AppCompatActivity {
                 geo.setLat(objGeo.optString("lat"));
                 geo.setLng(objGeo.optString("lng"));
 
+                JSONObject objCompany = obj.getJSONObject("company");
+                Comp.setName(objCompany.optString("name"));
+                Comp.setCatchPhrase(objCompany.optString("catchPhrase"));
+                Comp.setBs(objCompany.optString("bs"));
+
+                addr.setGeo(geo);
+                user.setAddress(addr);
+                user.setCompany(Comp);
+
                 Log.i("Username: ", user.getUsername());
                 Log.i("Email: ", user.getEmail());
+
+                this.listaUsuarios.add(user);
+                DataHandler.listaDatos = this.listaUsuarios;
 
             }
 
@@ -111,5 +141,13 @@ public class Servicio extends AppCompatActivity {
             System.out.println(e.getMessage());
             Log.i("ERROR PARSING", e.getMessage());
         }
+    }
+
+    public List<Usuarios> getListaUsuarios() {
+        return listaUsuarios;
+    }
+
+    public void setListaUsuarios(List<Usuarios> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
     }
 }
