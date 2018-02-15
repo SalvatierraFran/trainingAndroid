@@ -21,7 +21,8 @@
         <activity android:name=".TomaDatos" />
         <activity android:name=".Servicio" />
         <activity android:name=".MasDatosActivity" />
-        <activity android:name=".BotonDBActivity"></activity>
+        <activity android:name=".BotonDBActivity" />
+        <activity android:name=".ConFragmensActivity"></activity>
     </application>
 
 </manifest>
