@@ -64,8 +64,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goToFragments() {
-        ShowAlert("Ir a una pantalla que contenga dos tabs," +
-                "dentro de cada uno mostrar un texto sencillo que indique en que tab se encuentra");
+        /*ShowAlert("Ir a una pantalla que contenga dos tabs," +
+                "dentro de cada uno mostrar un texto sencillo que indique en que tab se encuentra");*/
+
+        Intent myIntent = new Intent(MainActivity.this, ConFragmensActivity.class);
+        MainActivity.this.startActivity(myIntent);
     }
 
     private void goToDB() {
