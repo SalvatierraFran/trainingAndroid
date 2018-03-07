@@ -1,7 +1,9 @@
 package com.melkor.training;
 
 import android.content.DialogInterface;
+import android.os.AsyncTask;
 import android.os.Build;
+import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.melkor.training.Utils.AsynkConnector;
 import com.melkor.training.Utils.Callback;
@@ -27,10 +31,14 @@ public class MainActivity extends AppCompatActivity {
         - Completar la funcionalidad de cada una de las secciones de la aplicacion definidas.
      */
 
+    ProgressBar prgBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        añadirVistas();
 
         ((Button)findViewById(R.id.btn_toma_datos)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         ((Button)findViewById(R.id.btn_consume_service)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                new AsyncTask_load().execute();
                 goToConsumeService();
             }
         });
@@ -61,6 +70,47 @@ public class MainActivity extends AppCompatActivity {
                 
             }
         });
+    }
+
+    private void añadirVistas()
+    {
+        prgBar = (ProgressBar)findViewById(R.id.progressBar);
+        prgBar.setVisibility(View.GONE);
+        prgBar.setProgress(0);
+    }
+
+    public class AsyncTask_load extends AsyncTask<Void, Integer, Void>
+    {
+        int progreso;
+
+        @Override
+        protected void onPreExecute()
+        {
+            progreso = 0;
+            prgBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            while(progreso < 100)
+            {
+                progreso++;
+                publishProgress(progreso);
+                SystemClock.sleep(20);
+            }
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            prgBar.setProgress(values[0]);
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            prgBar.setVisibility(View.INVISIBLE);
+            prgBar.setVisibility(View.GONE);
+        }
     }
 
     private void goToFragments() {
